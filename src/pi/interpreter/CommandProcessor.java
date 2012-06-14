@@ -1,7 +1,7 @@
 package pi.interpreter;
 
 import java.util.Map;
-import java.util.TreeMap;
+import ori.machine.StateMachine;
 
 public class CommandProcessor
 {
@@ -17,7 +17,7 @@ public class CommandProcessor
 
   public CommandProcessor()
   {
-    _dictionary = new TreeMap<String, Command>();
+    _dictionary = new StateMachine<Command>();
   }
 
   public CommandProcessor(Map<String, Command> dictionary)
