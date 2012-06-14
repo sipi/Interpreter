@@ -6,9 +6,11 @@ import pi.interpreter.Displayer;
 
 public class Echo implements Command
 {
+	public static final String LABEL = "echo";
+
   public String getLabel()
   {
-    return "echo";
+    return LABEL;
   }
   
   public int exec(String[] args, Displayer displayer)

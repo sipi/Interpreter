@@ -24,7 +24,25 @@ public class Interpreter
   {
     _cmd_processor = new CommandProcessor();
     _displayer = new Displayer(System.out, System.err);
-    _in = new InputSystem(System.in);
+    _in = new InputStream(System.in);
+  }
+
+  public Interpreter(Input in, Displayer out) {
+	_cmd_processor = new CommandProcessor();
+	_displayer = out;
+	_in = in;
+  }
+
+  public Interpreter(Input in, Output out) {
+	_cmd_processor = new CommandProcessor();
+	_displayer = new Displayer(out,out);
+	_in = in;
+  }
+
+  public Interpreter(Input in, Output out, Output err) {
+	_cmd_processor = new CommandProcessor();
+	_displayer = new Displayer(out,err);
+	_in = in;
   }
 
   // *************************************************************************
@@ -100,3 +118,4 @@ public class Interpreter
   }
 
 };
+
