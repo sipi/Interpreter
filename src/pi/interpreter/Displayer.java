@@ -1,7 +1,5 @@
 package pi.interpreter;
 
-import java.io.PrintStream;
-
 public class Displayer
 {
   public final Output out;
