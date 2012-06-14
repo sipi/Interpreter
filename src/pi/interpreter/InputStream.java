@@ -1,13 +1,12 @@
 package pi.interpreter;
 
-import java.io.InputStream;
 import java.util.Scanner;
 
-public class InputSystem implements Input
+public class InputStream implements Input
 {
   private Scanner _scan;
   
-  public InputSystem(InputStream in)
+  public InputStream(InputStream in)
   {
     _scan = new Scanner(in);
   }
@@ -18,5 +17,5 @@ public class InputSystem implements Input
     return _scan.nextLine();
   }
   
-  
-}
+};
+

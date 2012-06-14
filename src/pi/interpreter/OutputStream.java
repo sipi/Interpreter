@@ -8,4 +8,5 @@ public class OutputStream extends PrintStream implements Output
   {
     super(output_stream);
   }
-}
+};
+
