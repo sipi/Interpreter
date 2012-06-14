@@ -6,7 +6,7 @@ public class InputStream implements Input
 {
   private Scanner _scan;
   
-  public InputStream(InputStream in)
+  public InputStream(java.io.InputStream in)
   {
     _scan = new Scanner(in);
   }

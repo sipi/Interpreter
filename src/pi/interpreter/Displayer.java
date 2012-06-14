@@ -13,9 +13,9 @@ public class Displayer
     this.err = err;
   }
   
-  public Displayer(PrintStream out, PrintStream err)
+  public Displayer(java.io.OutputStream out, java.io.OutputStream err)
   {
-    this.out = new OutputSystem(out);
-    this.err = new OutputSystem(err);
+    this.out = new OutputStream(out);
+    this.err = new OutputStream(err);
   }
 }

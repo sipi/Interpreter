@@ -24,7 +24,7 @@ public class Interpreter
   {
     _cmd_processor = new CommandProcessor();
     _displayer = new Displayer(System.out, System.err);
-    _in = new InputSystem(System.in);
+    _in = new InputStream(System.in);
   }
 
   // *************************************************************************
