@@ -4,8 +4,8 @@ import java.io.PrintStream;
 
 public class Displayer
 {
-  public Output out;
-  public Output err;
+  public final Output out;
+  public final Output err;
   
   public Displayer(Output out, Output err)
   {
