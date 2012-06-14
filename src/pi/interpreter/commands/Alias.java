@@ -1,10 +1,9 @@
-package pi.interpreter.command;
+package pi.interpreter.commands;
 
 import java.util.Arrays;
 
 import pi.interpreter.Command;
-import pi.interpreter.CommandProcessor;
-import pi.interpreter.Displayer;
+import pi.interpreter.Environment;
 import pi.interpreter.Interpreter;
 
 public class Alias implements Command
@@ -23,17 +22,17 @@ public class Alias implements Command
     return LABEL;
   }
   
-  public int exec(String[] args, Displayer displayer)
+  public int exec(String[] args, Environment env)
   {
     Command cmd = _interpreter.getCmd(args[1]);
     if (cmd == null)
       {
-        displayer.out.println(args[1] + " : command not found");
-        return CommandProcessor.EXIT_FAILURE;
+        env.out.println(args[1] + " : command not found");
+        return Command.EXIT_FAILURE;
       }
       
     _interpreter.addAliases(cmd, Arrays.copyOfRange(args, 2, args.length));
-    return CommandProcessor.EXIT_SUCCESS;
+    return Command.EXIT_SUCCESS;
   }
   
   public String manual()

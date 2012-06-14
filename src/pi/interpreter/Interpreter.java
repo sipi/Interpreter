@@ -1,5 +1,7 @@
 package pi.interpreter;
 
+import pi.interpreter.commands.*;
+
 public class Interpreter
 {
 
@@ -7,8 +9,7 @@ public class Interpreter
   // ATTRIBUTS
   // *************************************************************************
 
-  private Displayer _displayer;
-  private Input _in;
+  public final Environment env;
 
   private String _banner = "";
   private String _prompt = "> ";
@@ -23,26 +24,34 @@ public class Interpreter
   public Interpreter()
   {
     _cmd_processor = new CommandProcessor();
-    _displayer = new Displayer(System.out, System.err);
-    _in = new InputStream(System.in);
-  }
-
-  public Interpreter(Input in, Displayer out) {
-	_cmd_processor = new CommandProcessor();
-	_displayer = out;
-	_in = in;
+    this.env = new Environment(System.in, System.out, System.err);
+    this.init();
   }
 
   public Interpreter(Input in, Output out) {
-	_cmd_processor = new CommandProcessor();
-	_displayer = new Displayer(out,out);
-	_in = in;
+    _cmd_processor = new CommandProcessor();
+    this.env = new Environment(in, out, out);
+    this.init();
   }
 
   public Interpreter(Input in, Output out, Output err) {
-	_cmd_processor = new CommandProcessor();
-	_displayer = new Displayer(out,err);
-	_in = in;
+  	_cmd_processor = new CommandProcessor();
+  	this.env = new Environment(in, out, out);
+  	this.init();
+  }
+  
+  private void init()
+  {
+    this.initCmd();
+  }
+  
+  protected void initCmd()
+  {
+    this.addCmd(new Alias(this));
+    this.addCmd(new Man(this));
+    
+    this.addCmd(new Echo());
+    this.addCmd(new Let());
   }
 
   // *************************************************************************
@@ -53,12 +62,12 @@ public class Interpreter
   {
     _exit = false;
 
-    this._displayer.out.println(_banner);
+    this.env.out.println(_banner);
 
     while (!_exit)
       {
-        this._displayer.out.print(_prompt);
-        _cmd_processor.exec(_in.readLine(), _displayer);
+        this.env.out.print(_prompt);
+        _cmd_processor.exec(this.env.in.readLine(), this.env);
       }
   }
 
@@ -67,6 +76,9 @@ public class Interpreter
     _exit = true;
   }
   
+  // *************************************************************************
+  //  METHODS OF COMMAND PROCESSOR
+  // *************************************************************************
   
   public void addCmd(Command cmd)
   {
@@ -100,16 +112,6 @@ public class Interpreter
   public void setBanner(String banner)
   {
     this._banner = banner;
-  }
-
-  public void setDisplayer(Displayer displayer)
-  {
-    this._displayer = displayer;
-  }
-
-  public void setIn(Input in)
-  {
-    this._in = in;
   }
 
   public void setPrompt(String prompt)

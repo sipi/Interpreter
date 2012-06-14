@@ -1,8 +1,7 @@
-package pi.interpreter.command;
+package pi.interpreter.commands;
 
 import pi.interpreter.Command;
-import pi.interpreter.CommandProcessor;
-import pi.interpreter.Displayer;
+import pi.interpreter.Environment;
 import pi.interpreter.Interpreter;
 
 public class Man implements Command
@@ -21,17 +20,17 @@ public class Man implements Command
     return LABEL;
   }
 
-  public int exec(String[] args, Displayer displayer)
+  public int exec(String[] args, Environment env)
   {
     Command cmd = _interpreter.getCmd(args[1]);
     if (cmd == null)
       {
-        displayer.out.println(args[1] + " : command not found");
-        return CommandProcessor.EXIT_FAILURE;
+        env.out.println(args[1] + " : command not found");
+        return Command.EXIT_FAILURE;
       }
 
-    displayer.out.println(cmd.manual());
-    return CommandProcessor.EXIT_SUCCESS;
+    env.out.println(cmd.manual());
+    return Command.EXIT_SUCCESS;
   }
 
   public String manual()

@@ -5,9 +5,7 @@ import ori.machine.StateMachine;
 
 public class CommandProcessor
 {
-  public static final int EXIT_SUCCESS = 0;
-  public static final int EXIT_FAILURE = -1;
-  
+ 
   private Map<String, Command> _dictionary;
 
   // *************************************************************************
@@ -28,17 +26,27 @@ public class CommandProcessor
   // METHODS
   // *************************************************************************
 
-  public int exec(String cmd_line, Displayer displayer)
+  public int exec(String cmd_line, Environment env)
   {
     String[] args = cmd_line.split("\\s");
+    
+    //@TODO do that before split
+    Object tmp;
+    for(int i = 0; i < args.length; ++i)
+      if(args[i].charAt(0) == '$')
+        {
+          tmp = env.get(args[i].substring(1));
+          args[i] = (tmp != null)? tmp.toString() : "";
+        }   
+    
     Command cmd = this.getCmd(args[0]);
     if (cmd == null)
       {
-        displayer.out.println(args[0] + " : command not found");
-        return CommandProcessor.EXIT_FAILURE;
+        env.out.println(args[0] + " : command not found");
+        return Command.EXIT_FAILURE;
       }
     
-    return cmd.exec(args, displayer);
+    return cmd.exec(args, env);
   }
   
   public void addCmd(Command cmd)
