@@ -7,7 +7,6 @@ public class CommandProcessor
 {
   public static final int EXIT_SUCCESS = 0;
   public static final int EXIT_FAILURE = -1;
-
   
   private Map<String, Command> _dictionary;
 
@@ -32,7 +31,14 @@ public class CommandProcessor
   public int exec(String cmd_line, Displayer displayer)
   {
     String[] args = cmd_line.split("\\s");
-    return _dictionary.get(args[0]).exec(args, displayer);
+    Command cmd = this.getCmd(args[0]);
+    if (cmd == null)
+      {
+        displayer.out.println(args[0] + " : command not found");
+        return CommandProcessor.EXIT_FAILURE;
+      }
+    
+    return cmd.exec(args, displayer);
   }
   
   public void addCmd(Command cmd)
