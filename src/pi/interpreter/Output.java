@@ -1,7 +1,5 @@
 package pi.interpreter;
 
-import java.io.PrintStream;
-
 public interface Output
 {  
   public void print(boolean b);
