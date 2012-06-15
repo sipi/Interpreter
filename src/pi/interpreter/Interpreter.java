@@ -84,10 +84,26 @@ public class Interpreter
   {
     _cmd_processor.addCmd(cmd);
   }
+
+	/**
+	 * Convenient method.
+	 * @see #addCmd(Command)
+	 */
+  public void addCommand(Command cmd) {
+	addCmd(cmd);
+  }
   
   public void addCmd(Command cmd, String[] aliases)
   {
     _cmd_processor.addCmd(cmd, aliases);
+  }
+
+	/** 
+	 * Convenient method.
+	 * @see #addCmd(Command,String[])
+	 */
+  public void addCommand(Command cmd, String[] aliases) {
+	addCmd(cmd,aliases);
   }
   
   public void addAliases(Command cmd, String[] aliases)

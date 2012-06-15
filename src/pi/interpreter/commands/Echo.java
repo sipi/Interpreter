@@ -1,6 +1,5 @@
 package pi.interpreter.commands;
 
-import pi.interpreter.Command;
 import pi.interpreter.Environment;
 
 public class Echo implements Command

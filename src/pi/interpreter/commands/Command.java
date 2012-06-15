@@ -1,4 +1,6 @@
-package pi.interpreter;
+package pi.interpreter.commands;
+
+import pi.interpreter.Environment;
 
 public interface Command
 {

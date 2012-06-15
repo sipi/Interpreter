@@ -2,6 +2,7 @@ package pi.interpreter;
 
 import java.util.Map;
 import ori.machine.StateMachine;
+import pi.interpreter.commands.Command;
 
 public class CommandProcessor
 {

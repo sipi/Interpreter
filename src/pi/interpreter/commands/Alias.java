@@ -2,7 +2,6 @@ package pi.interpreter.commands;
 
 import java.util.Arrays;
 
-import pi.interpreter.Command;
 import pi.interpreter.Environment;
 import pi.interpreter.Interpreter;
 
