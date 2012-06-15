@@ -2,6 +2,7 @@ package pi.interpreter;
 
 import java.util.Arrays;
 import java.util.Map;
+import java.util.Collection;
 import ori.machine.StateMachine;
 import pi.interpreter.commands.Command;
 
@@ -23,6 +24,10 @@ public class CommandProcessor
   public CommandProcessor(Map<String, Command> dictionary)
   {
     _dictionary = dictionary;
+  }
+
+  public Collection<Command> getCommands() {
+	return _dictionary.values();
   }
 
   // *************************************************************************

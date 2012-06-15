@@ -55,6 +55,7 @@ public class Interpreter
 
     this.addCmd(new Echo());
     this.addCmd(new Let());
+	this.addCmd(new Help(_cmd_processor));
   }
 
   // *************************************************************************
