@@ -1,6 +1,7 @@
 package pi.interpreter.commands;
 
 import java.util.Collection;
+import java.util.TreeSet;
 import pi.interpreter.Environment;
 import pi.interpreter.CommandProcessor;
 
@@ -25,9 +26,13 @@ public class Help implements Command {
 			return EXIT_FAILURE;
 		env.out.println("Commands :");
 		Collection<Command> cmds = _processor.getCommands();
+		TreeSet<String> added = new TreeSet<String>();
 		for (Command c : cmds) {
-			env.out.print("    ");
-			env.out.println(c.getLabel());
+			if (!added.contains(c.getLabel())) {
+				env.out.print("    ");
+				env.out.println(c.getLabel());
+				added.add(c.getLabel());
+			}
 		}
 		return EXIT_SUCCESS;
 	}
