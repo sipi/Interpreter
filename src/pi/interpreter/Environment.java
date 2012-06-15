@@ -46,6 +46,7 @@ public class Environment
   
   public Object get(String var)
   {
-    return _map.get(var);
+    Object o = _map.get(var);
+    return (o != null)? o : "";
   }
 }
