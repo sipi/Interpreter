@@ -19,7 +19,7 @@ public class Let implements Command
   
   public String manual()
   {
-    return "let var_name value";
+    return "Syntaxe : let <var_name> <value>";
   }
 
 }
