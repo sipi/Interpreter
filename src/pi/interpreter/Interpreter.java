@@ -74,7 +74,7 @@ public class Interpreter
           this.env.return_value = _cmd_processor.exec(this.env.in.readLine(),
             this.env);
         }catch(Exception e){
-          this.env.err.println(e.getMessage());
+          this.env.err.println("Exception : " +e.getMessage());
         }
       }
     while (!_exit);
