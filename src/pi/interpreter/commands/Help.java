@@ -25,8 +25,10 @@ public class Help implements Command {
 			return EXIT_FAILURE;
 		env.out.println("Commands :");
 		Collection<Command> cmds = _processor.getCommands();
-		for (Command c : cmds)
+		for (Command c : cmds) {
+			env.out.print("    ");
 			env.out.println(c.getLabel());
+		}
 		return EXIT_SUCCESS;
 	}
 
