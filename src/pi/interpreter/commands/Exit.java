@@ -26,6 +26,6 @@ public class Exit implements Command
 
   public String manual()
   {
-    return "Syntaxe : exit";
+    return "Syntax : exit";
   }
 }

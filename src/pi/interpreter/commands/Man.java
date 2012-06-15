@@ -40,6 +40,6 @@ public class Man implements Command
 
   public String manual()
   {
-    return "Syntaxe : man <command_name>";
+    return "Syntax : man <command_name>";
   }
 }

@@ -36,7 +36,7 @@ public class Alias implements Command
   
   public String manual()
   {
-    return "Syntaxe : alias <cmd_name> <alias> [<alias>]...";
+    return "Syntax : alias <cmd_name> <alias> [<alias>]...";
   }
 
 }

@@ -22,7 +22,7 @@ public class Echo implements Command
     
   public String manual()
   {
-    return "Syntaxe : echo [<param>]...";
+    return "Syntax : echo [<param>]...";
   }
 
 };
