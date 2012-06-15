@@ -21,6 +21,12 @@ public class Man implements Command
 
   public int exec(String[] args, Environment env)
   {
+    if(args.length < 2)
+      {
+        env.out.println(this.manual());
+        return 1;
+      }
+    
     Command cmd = _interpreter.getCmd(args[1]);
     if (cmd == null)
       {
@@ -34,6 +40,6 @@ public class Man implements Command
 
   public String manual()
   {
-    return "";
+    return "Usage : man command_name";
   }
 }
