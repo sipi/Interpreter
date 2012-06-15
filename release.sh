@@ -1,4 +1,4 @@
-TARGET_NAME=machine.jar
+TARGET_NAME=interpreter.jar
 if [ ! -d target/class ]; then
 	echo 'No target/class directory'
 	echo 'Run build.sh first!'

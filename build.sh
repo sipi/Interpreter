@@ -11,5 +11,5 @@ fi
 javac -d target/class/ \
 -cp lib/machine.jar \
 src/pi/interpreter/*.java \
-src/pi/interpreter/command/*.java
+src/pi/interpreter/commands/*.java
 
