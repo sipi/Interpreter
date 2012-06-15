@@ -1,7 +1,6 @@
 package pi.interpreter;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.Collection;
 import ori.machine.StateMachine;

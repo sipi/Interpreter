@@ -1,5 +1,10 @@
+/**
+ * @author Clément Sipieter <csipieter@gmail.com>
+ */
 package pi.interpreter;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -33,6 +38,13 @@ public class Environment
   private void init()
   {
     _map = new TreeMap<String, Object>();
+    try
+      {
+        this.set("_pwd", (new File(".")).getCanonicalPath());
+      }
+    catch (IOException e)
+      {
+      }
   }
   
   // *************************************************************************
@@ -49,4 +61,5 @@ public class Environment
     Object o = _map.get(var);
     return (o != null)? o : "";
   }
+  
 }
