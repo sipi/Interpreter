@@ -9,6 +9,8 @@ public class Environment
   public final Output err;
   public final Input in;
 
+  protected int return_value;
+  
   private Map<String, Object> _map;
 
   public Environment(Input in, Output out, Output err)
