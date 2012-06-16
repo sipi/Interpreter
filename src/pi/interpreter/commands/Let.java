@@ -4,7 +4,9 @@ import pi.interpreter.Environment;
 
 public class Let implements Command
 {
-  private static final String LABEL = "let";
+  public static final String LABEL = "let";
+  public static final String SHORT_DESC	= "set the value of an environment variable";
+  public static final String SYNTAX	= "<variable_name> <value>";
 
   public String getLabel()
   {
@@ -19,7 +21,14 @@ public class Let implements Command
   
   public String manual()
   {
-    return "Syntax : let <var_name> <value>";
+  	return syntax();
   }
 
+	public String shortDescription() {
+		return SHORT_DESC;
+	}
+	
+	public String syntax() {
+		return SYNTAX_KEYWORD + SYNTAX;
+	}
 }

@@ -5,7 +5,9 @@ import pi.interpreter.Interpreter;
 
 public class Exit implements Command
 {
-  private static final String LABEL = "exit";
+  public static final String LABEL = "exit";
+  public static final String SHORT_DESC	= "exit the interpreter";
+  public static final String SYNTAX	= "";
   private Interpreter _interpreter;
 
   public Exit(Interpreter interpreter)
@@ -26,6 +28,14 @@ public class Exit implements Command
 
   public String manual()
   {
-    return "Syntax : exit";
+    return syntax();
   }
+
+	public String shortDescription() {
+		return SHORT_DESC;
+	}
+
+	public String syntax() {
+		return SYNTAX_KEYWORD + SYNTAX;
+	}
 }

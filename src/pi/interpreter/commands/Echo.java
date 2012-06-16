@@ -5,6 +5,8 @@ import pi.interpreter.Environment;
 public class Echo implements Command
 {
 	public static final String LABEL = "echo";
+  public static final String SHORT_DESC	= "print into the output";
+  public static final String SYNTAX	= "[<text>]";
 
   public String getLabel()
   {
@@ -22,7 +24,15 @@ public class Echo implements Command
     
   public String manual()
   {
-    return "Syntax : echo [<param>]...";
+  	// TODO $VAR
+    return syntax();
   }
 
+	public String shortDescription() {
+		return SHORT_DESC;
+	}
+
+	public String syntax() {
+		return SYNTAX_KEYWORD + SYNTAX;
+	}
 };

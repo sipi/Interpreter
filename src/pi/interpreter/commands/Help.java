@@ -7,7 +7,9 @@ import pi.interpreter.CommandProcessor;
 
 public class Help implements Command {
 	
-	public static final String LABEL = "help";
+	public static final String LABEL 		= "help";
+	public static final String SHORT_DESC	= "displays help";
+	public static final String SYNTAX		= "";
 
 	public Help(CommandProcessor processor) {
 		_processor = processor;
@@ -18,9 +20,12 @@ public class Help implements Command {
 	}
 
 	public String manual() {
-		return LABEL;
+		return syntax();
 	}
 
+	public String syntax() {
+		return SYNTAX_KEYWORD + SYNTAX;
+	}
 	public int exec(String args[], Environment env) {
 		if (args.length != 1)
 			return EXIT_FAILURE;
@@ -37,6 +42,10 @@ public class Help implements Command {
 			}
 		}
 		return EXIT_SUCCESS;
+	}
+
+	public String shortDescription() {
+		return SHORT_DESC;
 	}
 
 	private CommandProcessor _processor;

@@ -7,7 +7,9 @@ import pi.interpreter.Interpreter;
 
 public class Alias implements Command
 {
-  private static final String LABEL = "alias";
+  public static final String LABEL		= "alias";
+  public static final String SHORT_DESC	= "creates an alias";
+  public static final String SYNTAX		= "<cmd_name> <alias> [<alias> ...]";
   private Interpreter _interpreter;
 
   public Alias(Interpreter interpreter)
@@ -36,7 +38,15 @@ public class Alias implements Command
   
   public String manual()
   {
-    return "Syntax : alias <cmd_name> <alias> [<alias>]...";
+    return syntax();
   }
+
+	public String shortDescription() {
+		return SHORT_DESC;
+	}
+
+	public String syntax() {
+		return SYNTAX_KEYWORD + SYNTAX;
+	}
 
 }

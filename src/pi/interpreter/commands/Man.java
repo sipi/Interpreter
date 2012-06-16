@@ -6,7 +6,9 @@ import pi.interpreter.Interpreter;
 public class Man implements Command
 {
 
-  private static final String LABEL = "man";
+  public static final String LABEL = "man";
+  public static final String SHORT_DESC	= "open a command manual";
+  public static final String SYNTAX = "<command_name>";
   private Interpreter _interpreter;
 
   public Man(Interpreter interpreter)
@@ -40,6 +42,13 @@ public class Man implements Command
 
   public String manual()
   {
-    return "Syntax : man <command_name>";
+    return syntax();
   }
+
+	public String syntax() {
+		return SYNTAX_KEYWORD + SYNTAX;
+	}
+	public String shortDescription() {
+		return SHORT_DESC;
+	}
 }
