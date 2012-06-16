@@ -30,7 +30,9 @@ public class Help implements Command {
 		for (Command c : cmds) {
 			if (!added.contains(c.getLabel())) {
 				env.out.print("    ");
-				env.out.println(c.getLabel());
+				env.out.print(c.getLabel());
+				env.out.print("    ");
+				env.out.println(c.shortDescription());
 				added.add(c.getLabel());
 			}
 		}

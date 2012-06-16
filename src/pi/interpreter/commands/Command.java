@@ -10,4 +10,6 @@ public interface Command
   public String getLabel();
   public int exec(String[] args, Environment env);
   public String manual();
+  public String syntax();
+  public String shortDescription();
 };
