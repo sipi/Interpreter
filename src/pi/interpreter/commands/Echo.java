@@ -24,7 +24,6 @@ public class Echo implements Command
     
   public String manual()
   {
-  	// TODO $VAR
     return syntax();
   }
 
