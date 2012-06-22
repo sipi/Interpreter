@@ -24,7 +24,7 @@ public class Help implements Command {
 	}
 
 	public String syntax() {
-		return SYNTAX_KEYWORD + SYNTAX;
+		return SYNTAX_KEYWORD + getLabel() + " " + SYNTAX;
 	}
 
 	public String shortDescription() {

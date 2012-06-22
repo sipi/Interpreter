@@ -1,10 +1,13 @@
+/**
+ * @author Clément Sipieter <csipieter@gmail.com>
+ */
 package pi.interpreter;
 
 import pi.interpreter.commands.*;
 
 public class Interpreter
 {
-  
+
   // *************************************************************************
   // ATTRIBUTS
   // *************************************************************************
@@ -55,7 +58,12 @@ public class Interpreter
 
     this.addCmd(new Echo());
     this.addCmd(new Let());
-	this.addCmd(new Help(_cmd_processor));
+    this.addCmd(new Ls());
+    this.addCmd(new Cd());
+    this.addCmd(new Pwd());
+
+    
+    this.addCmd(new Help(_cmd_processor));
   }
 
   // *************************************************************************
@@ -71,12 +79,15 @@ public class Interpreter
     do
       {
         this.env.out.print(_prompt);
-        try{
-          this.env.return_value = _cmd_processor.exec(this.env.in.readLine(),
-            this.env);
-        }catch(Exception e){
-          this.env.err.println("Exception : " +e.getMessage());
-        }
+        try
+          {
+            this.env.return_value = _cmd_processor.exec(this.env.in.readLine(),
+                this.env);
+          }
+        catch (Exception e)
+          {
+            this.env.err.println("Exception : " + e.getMessage());
+          }
       }
     while (!_exit);
 

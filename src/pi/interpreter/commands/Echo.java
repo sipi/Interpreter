@@ -33,6 +33,6 @@ public class Echo implements Command
 	}
 
 	public String syntax() {
-		return SYNTAX_KEYWORD + SYNTAX;
+		return SYNTAX_KEYWORD + getLabel() + " " + SYNTAX;
 	}
 };

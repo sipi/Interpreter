@@ -46,7 +46,7 @@ public class Man implements Command
   }
 
 	public String syntax() {
-		return SYNTAX_KEYWORD + SYNTAX;
+		return SYNTAX_KEYWORD + getLabel() + SYNTAX;
 	}
 	public String shortDescription() {
 		return SHORT_DESC;
