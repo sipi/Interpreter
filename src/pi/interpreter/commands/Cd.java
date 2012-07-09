@@ -25,7 +25,7 @@ public class Cd implements Command
   public int exec(String[] args, Environment env)
   {
     File dir;
-    String dir_name = env.get("_pwd").toString();
+    String dir_name = env.get(Environment.PWD_KEY).toString();
 
     if (args.length > 1)
       if (args[1].length() > 0)
@@ -41,7 +41,7 @@ public class Cd implements Command
     if (dir.isDirectory())
       {
         try{
-          env.set("_pwd", dir.getCanonicalPath() + "/");
+          env.set(Environment.PWD_KEY, dir.getCanonicalPath() + "/");
         }catch(IOException e){
           return Command.EXIT_FAILURE;
         }

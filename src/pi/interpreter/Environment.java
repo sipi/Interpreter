@@ -5,11 +5,14 @@ package pi.interpreter;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Set;
+import java.util.Collection;
 import java.util.Map;
 import java.util.TreeMap;
 
 public class Environment
 {
+	public static final String PWD_KEY = "PWD";
   public final Output out;
   public final Output err;
   public final Input in;
@@ -40,7 +43,7 @@ public class Environment
     _map = new TreeMap<String, Object>();
     try
       {
-        this.set("_pwd", (new File(".")).getCanonicalPath());
+        this.set(PWD_KEY, (new File(".")).getCanonicalPath());
       }
     catch (IOException e)
       {
@@ -61,5 +64,17 @@ public class Environment
     Object o = _map.get(var);
     return (o != null)? o : "";
   }
+
+	public Set<String> keySet() {
+		return _map.keySet();
+	}
+
+	public Collection<Object> values() {
+		return _map.values();
+	}
+
+	public Set<Map.Entry<String,Object> > entrySet() {
+		return _map.entrySet();
+	}
   
 }

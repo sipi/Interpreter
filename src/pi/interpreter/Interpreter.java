@@ -61,6 +61,7 @@ public class Interpreter
     this.addCmd(new Ls());
     this.addCmd(new Cd());
     this.addCmd(new Pwd());
+	this.addCmd(new Env());
 
     
     this.addCmd(new Help(_cmd_processor));

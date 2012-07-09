@@ -21,7 +21,7 @@ public class Pwd implements Command
   @Override
   public int exec(String[] args, Environment env)
   {
-    env.out.println(env.get("_pwd").toString());
+    env.out.println(env.get(Environment.PWD_KEY).toString());
     return Command.EXIT_SUCCESS;
   }
 
