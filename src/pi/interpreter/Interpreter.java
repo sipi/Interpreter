@@ -52,19 +52,16 @@ public class Interpreter
 
   protected void initCmd()
   {
-    this.addCmd(new Alias(this));
-    this.addCmd(new Man(this));
-    this.addCmd(new Exit(this));
-
-    this.addCmd(new Echo());
-    this.addCmd(new Let());
-    this.addCmd(new Ls());
-    this.addCmd(new Cd());
-    this.addCmd(new Pwd());
-	this.addCmd(new Env());
-
-    
-    this.addCmd(new Help(_cmd_processor));
+    	this.addCmd(new Alias(this));
+    	this.addCmd(new Cd());
+    	this.addCmd(new Echo());
+		this.addCmd(new Env());
+    	this.addCmd(new Exit(this));
+    	this.addCmd(new Help(_cmd_processor));
+   	 	this.addCmd(new Let());
+		this.addCmd(new Ls());
+  		this.addCmd(new Man(this));
+    	this.addCmd(new Pwd());
   }
 
   // *************************************************************************
