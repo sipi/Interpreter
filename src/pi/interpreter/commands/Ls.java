@@ -25,7 +25,7 @@ public class Ls implements Command
   {
     File dir;
     File[] list;
-    String dir_name = env.get("_pwd").toString();
+    String dir_name = env.get(Environment.PWD_KEY).toString();
     String file_name;
     boolean opt_all = false;
 
